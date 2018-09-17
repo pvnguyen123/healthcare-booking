@@ -4,11 +4,11 @@
     </div>
 
     <ul class="list-unstyled components">
-      <p>Welcome, Jose</p>
+      <p>Welcome, {{username}}</p>
       <li class="active">
 
-        <a href="#homeSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle" {{action (toggle-action "collapsed" this)}}>Home</a>
-        {{#bs-collapse collapsed=collapsed}}
+        <a href="" data-toggle="collapse" class="dropdown-toggle" {{action (toggle-action "homeSubmenuCollapse" this)}}>Home</a>
+        {{#bs-collapse collapsed=homeSubmenuCollapse}}
           <ul class="list-unstyled" id="homeSubmenu">
           <li>
             <a href="#">Home 1</a>
@@ -21,13 +21,12 @@
           </li>
         </ul>
         {{/bs-collapse}}
-
-
       </li>
       <li>
         <a href="#">About</a>
-        <a href="#pageSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Pages</a>
-        <ul class="collapse list-unstyled" id="pageSubmenu">
+        <a href="" data-toggle="collapse" class="dropdown-toggle" {{action (toggle-action "pageSubmenuCollapse" this)}}>Pages</a>
+        {{#bs-collapse collapsed=pageSubmenuCollapse}}
+        <ul class="list-unstyled" id="pageSubmenuCollapse">
           <li>
             <a href="#">Page 1</a>
           </li>
@@ -38,6 +37,7 @@
             <a href="#">Page 3</a>
           </li>
         </ul>
+        {{/bs-collapse}}
       </li>
       <li>
         <a href="#">Portfolio</a>
@@ -49,7 +49,11 @@
 
     <ul class="list-unstyled CTAs">
       <li>
-        <a href="#" class="download">Log Out</a>
+        {{#if authenticated}}
+          <a href="#" class="login" {{action 'logout'}}>Log Out</a>
+        {{else}}
+          {{#link-to 'login' class="login"}}Login{{/link-to}}
+        {{/if}}
       </li>
       <li>
         <a href="#" class="article">Help</a>

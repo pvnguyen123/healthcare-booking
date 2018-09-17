@@ -6,6 +6,7 @@ from healthcarebooking.models import User
 from healthcarebooking.extensions import ma, db
 from healthcarebooking.commons.pagination import paginate
 from healthcarebooking.commons.utils import dasherize
+from healthcarebooking.commons.decorators import with_transaction, marshal_with
 
 class UserSchema(ma.Schema):
     id = ma.fields.Int(dump_only=True)

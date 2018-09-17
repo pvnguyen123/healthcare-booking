@@ -24,17 +24,14 @@ blueprint = Blueprint('auth', __name__, url_prefix='/auth')
 def login():
     """Authenticate user and return token
     """
-    if not request.is_json:
-        return jsonify({"msg": "Missing JSON in request"}), 400
-
-    username = request.json.get('username', None)
-    password = request.json.get('password', None)
+    username = request.form.get('username', None)
+    password = request.form.get('password', None)
     if not username or not password:
-        return jsonify({"msg": "Missing username or password"}), 400
+        return jsonify({"error": "Missing username or password"}), 400
 
     user = User.query.filter_by(username=username).first()
     if user is None or not pwd_context.verify(password, user.password):
-        return jsonify({"msg": "Bad credentials"}), 400
+        return jsonify({"error": "Bad credentials"}), 400
 
     access_token = create_access_token(identity=user.id)
     refresh_token = create_refresh_token(identity=user.id)
@@ -43,7 +40,8 @@ def login():
 
     ret = {
         'access_token': access_token,
-        'refresh_token': refresh_token
+        'refresh_token': refresh_token,
+        'username': username
     }
     return jsonify(ret), 200
 

@@ -61,7 +61,7 @@ def configure_app(app, testing=False):
     origins = ['http://localhost:4200/*', 'http://localhost:5000/*']
     CORS(app,
         origins=origins,
-        resources=['/api/*', '/admin', '/auth'],
+        resources=['/api/*', '/auth/*'],
         allow_headers=headers,
         supports_credentials=True)
 
