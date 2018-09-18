@@ -7,7 +7,7 @@ Simple Flask + EmberJs application
 
 ### Get Started
 1. Clone repo locally 
-	`Git clone git@github.com:pvnguyen123/healthcare-booking.git`
+	`git clone git@github.com:pvnguyen123/healthcare-booking.git`
 2. Create python venv
 	cd healthcare-booking
 	`python -m venv venv`
