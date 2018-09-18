@@ -8,18 +8,18 @@ Simple Flask + EmberJs application
 ### Get Started
 1. Clone repo locally (use the clone option above)
 2. Create python venv
-a. `cd healthcare-booking`
-b. `python -m venv venv`
+..* `cd healthcare-booking`
+..* `python -m venv venv`
 3. Install Python dependency
-a. `source venv/bin/activate`
-b. `pip install -r requirement.txt`
-c. `pip install -e .`
+..* `source venv/bin/activate`
+..* `pip install -r requirement.txt`
+..* `pip install -e .`
 4. Run backend server
-a. `healthcarebooking init`
-b. `healthcarebooking run`
-c. (https://github.com/karec/cookiecutter-flask-restful)
+..* `healthcarebooking init`
+..* `healthcarebooking run`
+..* (https://github.com/karec/cookiecutter-flask-restful)
 5. Run frontend server
-a. `cd healthcarebooking-fe`
-b. `ember build`
-c. `ember serve`
+..* `cd healthcarebooking-fe`
+..* `ember build`
+..* `ember serve`
 6. http://localhost:4200
