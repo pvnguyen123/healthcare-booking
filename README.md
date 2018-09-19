@@ -20,6 +20,7 @@ Simple Flask + EmberJs application
   * (https://github.com/karec/cookiecutter-flask-restful)
 5. Run frontend server
   * `cd healthcarebooking-fe`
+  * `npm install`
   * `ember build`
   * `ember serve`
 6. http://localhost:4200
