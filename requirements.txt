@@ -4,6 +4,7 @@ flask-migrate
 flask-sqlalchemy
 flask-marshmallow
 flask-jwt-extended
+pymysql
 Flask-Cors
 marshmallow-sqlalchemy
 marshmallow-jsonapi

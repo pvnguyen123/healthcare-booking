@@ -8,7 +8,9 @@ const Router = EmberRouter.extend({
 
 Router.map(function() {
   this.route('login');
-  this.route('protected');
+  this.route('protected', function() {
+    this.route('bookings');
+  });
   this.route('admin');
 });
 

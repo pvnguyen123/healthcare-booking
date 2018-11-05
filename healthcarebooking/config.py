@@ -5,7 +5,7 @@ Use env var to override
 DEBUG = True
 SECRET_KEY = "changeme"
 
-SQLALCHEMY_DATABASE_URI = "sqlite:////tmp/healthcarebooking.db"
+SQLALCHEMY_DATABASE_URI = "mysql+pymysql://root@localhost/booking_stg"
 SQLALCHEMY_TRACK_MODIFICATIONS = False
 
 JWT_BLACKLIST_ENABLED = True
