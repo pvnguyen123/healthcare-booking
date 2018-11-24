@@ -1,5 +1,6 @@
 # healthcare-booking
-Simple Flask + EmberJs application
+Simple Flask + EmberJs application + Mysql
+
 ### Pre-req
 1. Python 3 (https://www.python.org/)
 2. NPM 6 (https://docs.npmjs.com/cli/install)
