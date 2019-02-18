@@ -10,6 +10,8 @@ Router.map(function() {
   this.route('login');
   this.route('protected', function() {
     this.route('bookings');
+    this.route('requests');
+    this.route('history');
   });
   this.route('admin');
 });

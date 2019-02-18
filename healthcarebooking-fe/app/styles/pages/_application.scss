@@ -1,0 +1,22 @@
+#application {
+    display: grid;
+    min-height: 100vh;
+    grid-template-rows: auto 1fr auto;
+    grid-template-areas:
+        "header"
+        "main"
+        "footer";
+
+    .application-layout__header {
+        grid-area: header;
+    }
+
+    .application-layout__main {
+        grid-area: main;
+    }
+
+    .application-layout__footer {
+        grid-area: footer;
+    }
+
+}

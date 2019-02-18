@@ -1,25 +1,7 @@
-<nav class="navbar navbar-expand-lg navbar-light bg-light">
-  <div class="container-fluid">
-
-    <button type="button" id="sidebarCollapse" class="navbar-btn">
-      <span></span>
-      <span></span>
-      <span></span>
-    </button>
-    <button class="btn btn-dark d-inline-block d-lg-none ml-auto" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
-      aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-      <i class="fas fa-align-justify"></i>
-    </button>
-
-    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-      <ul class="nav navbar-nav ml-auto">
-        <li class="nav-item active">
-          <a class="nav-link" href="#">Inbox</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#">Profile</a>
-        </li>
-      </ul>
-    </div>
-  </div>
+<nav class="comp-page-header__nav container">
+    {{#link-to 'protected.bookings' class='comp-page-header__nav-items'}}Bookings{{/link-to}}
+    {{#link-to 'protected.requests' class='comp-page-header__nav-items'}}Requests{{/link-to}}
+    {{#link-to 'protected.history' class='comp-page-header__nav-items'}}History{{/link-to}}
+    <div class="comp-page-header__nav-items comp-page-header__nav-items--expand"></div>
+    <a href="" class='comp-page-header__nav-items'>Hi {{username}}</a>
 </nav>

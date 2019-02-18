@@ -3,9 +3,7 @@
     "python.linting.pylintPath": "pylint",
     "python.formatting.provider": "autopep8",
     "python.pythonPath": "venv/bin/python",
-    "css.remoteStyleSheets": [
-        "https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
-    ],
+
     "files.exclude": {
         "**/node_modules/": true,
         "**/tmp/": true,

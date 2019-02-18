@@ -4,12 +4,9 @@ const EmberApp = require('ember-cli/lib/broccoli/ember-app');
 
 module.exports = function(defaults) {
   let app = new EmberApp(defaults, {
-    'ember-bootstrap': {
-      'bootstrapVersion': 4,
-      'importBootstrapFont': false,
-      'importBootstrapCSS': false
-    }
+
   });
+
 
   // Use `app.import` to add additional libraries to the generated
   // output files.
@@ -23,6 +20,9 @@ module.exports = function(defaults) {
   // modules that you would like to import into your application
   // please specify an object with the list of modules as keys
   // along with the exports of each module as its value.
+
+  app.import('vendor/Skeleton-2.0.4/css/normalize.css');
+  app.import('vendor/Skeleton-2.0.4/css/skeleton.css');
 
   return app.toTree();
 };

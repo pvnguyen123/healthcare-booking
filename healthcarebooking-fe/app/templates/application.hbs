@@ -1,11 +1,9 @@
-<div class="wrapper">
-  <!-- Sidebar Holder -->
-  {{page-sidebar}}
+<div id="application">
+    {{page-header class="application-layout__header"}}
 
-  <!-- Page Content Holder -->
-  <div id="content">
-    {{page-header}}
+    <div class="application-layout__main container">
+        {{outlet}}
+    </div>
 
-    {{outlet}}
-  </div>
+    {{page-footer class="application-layout__footer"}}
 </div>
