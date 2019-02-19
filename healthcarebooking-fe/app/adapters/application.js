@@ -19,7 +19,7 @@ export default DS.JSONAPIAdapter.extend(DataAdapterMixin, {
         };
         return hash;
     },
-    handleResponse (status, headers, payload, requestData) {
+    handleResponse (status, headers, payload /*, requestData */) {
         if(!this.isSuccess(status, headers, payload)) {
             if(payload.message) {
                 // Normalize the error response where payload is {message: ''}
