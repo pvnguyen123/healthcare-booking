@@ -25,4 +25,8 @@
     &__nav-items--expand {
         flex: 1;
     }
+
+    &__nav-items--dropdown{
+        line-height: unset;
+    }
 }
