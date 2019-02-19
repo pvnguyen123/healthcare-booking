@@ -5,7 +5,7 @@ module.exports = function(environment) {
     modulePrefix: 'healthcarebooking-fe',
     environment,
     rootURL: '/',
-    locationType: 'auto',
+    locationType: 'hash',
     mainAPIServer: 'http://localhost:5000',
     EmberENV: {
       FEATURES: {

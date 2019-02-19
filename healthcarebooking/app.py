@@ -5,27 +5,17 @@ from datetime import timedelta
 
 from healthcarebooking import auth, api
 from healthcarebooking.extensions import db, jwt, migrate
-from http.client import FORBIDDEN, UNAUTHORIZED
 
 
 def create_app(config=None, testing=False, cli=False):
     """Application factory, used to create application
     """
-    app = Flask('healthcarebooking')
+    app = Flask('healthcarebooking', static_folder='../healthcarebooking-fe/dist')
 
     configure_app(app, testing)
     configure_extensions(app, cli)
     register_blueprints(app)
-
-
-    @app.errorhandler(UNAUTHORIZED)
-    @app.errorhandler(FORBIDDEN)
-    def forbidden_handler(error):
-        return 'UNAUTHORIZED', UNAUTHORIZED
-
-    @app.errorhandler(404)
-    def not_found_handler(error):
-        return error, 404
+    register_static_contents(app)
 
     @app.before_request
     def make_session_permanent():
@@ -81,3 +71,15 @@ def register_blueprints(app):
     """
     app.register_blueprint(auth.views.blueprint)
     app.register_blueprint(api.views.blueprint)
+
+
+def register_static_contents(app):
+    # Routes
+    @app.route('/')
+    def root():
+        return app.send_static_file('index.html')
+
+    @app.route('/<path:path>')
+    def static_proxy(path):
+        # send_static_file will guess the correct MIME type
+        return app.send_static_file(path)
