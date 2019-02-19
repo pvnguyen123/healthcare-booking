@@ -12,6 +12,9 @@ Router.map(function() {
     this.route('bookings');
     this.route('requests');
     this.route('history');
+    this.route('providers');
+    this.route('clients');
+    this.route('tasks');
   });
   this.route('admin');
 });
