@@ -11,3 +11,4 @@ marshmallow-jsonapi
 python-dotenv
 passlib
 tox
+gunicorn
