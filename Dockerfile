@@ -5,6 +5,7 @@ FROM python:3.6.5-alpine
 ADD ./healthcarebooking /app/healthcarebooking
 ADD ./healthcarebooking-fe/dist /app/healthcarebooking-fe/dist
 ADD ./requirements.txt /app
+ADD ./BaltimoreCyberTrustRoot.crt.pem /app
 # install requirements
 # RUN apk add --update nodejs nodejs-npm
 # WORKDIR /app/healthcarebooking-fe

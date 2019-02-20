@@ -2,6 +2,7 @@ import flask
 from flask import Flask
 from flask_cors import CORS
 from datetime import timedelta
+from urllib.parse import quote_plus as urlquote
 
 from healthcarebooking import auth, api
 from healthcarebooking.extensions import db, jwt, migrate
@@ -45,6 +46,17 @@ def configure_app(app, testing=False):
     else:
         # override with env variable, fail silently if not set
         app.config.from_envvar("HEALTHCAREBOOKING_CONFIG", silent=True)
+
+    db_user = urlquote(app.config['DB_USER'])
+    db_password = app.config.get('DB_PASSWORD')
+    db_password = urlquote(db_password) if db_password else None
+    db_host = urlquote(app.config['DB_HOST'])
+    db_name = urlquote(app.config['DB_NAME'])
+
+    if db_password:
+        app.config['SQLALCHEMY_DATABASE_URI'] = f'mysql+pymysql://{db_user}:{db_password}@{db_host}/{db_name}?ssl_ca=BaltimoreCyberTrustRoot.crt.pem'
+    else:
+        app.config['SQLALCHEMY_DATABASE_URI'] = f'mysql+pymysql://{db_user}@{db_host}/{db_name}'
 
     # Setup CORs
     headers = ['accept', 'origin', 'Content-Type']

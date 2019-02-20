@@ -5,7 +5,7 @@ from healthcarebooking.app import create_app
 
 
 def create_healthcarebooking(info):
-    return create_app(cli=True)
+    return create_app(cli=True, testing=True)
 
 
 @click.group(cls=FlaskGroup, create_app=create_healthcarebooking)
