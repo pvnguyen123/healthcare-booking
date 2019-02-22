@@ -1,1 +1,6 @@
-from . import views
+from .views import blueprint
+
+
+__all__ = [
+    'blueprint',
+]

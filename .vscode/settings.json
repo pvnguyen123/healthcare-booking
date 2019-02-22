@@ -1,6 +1,5 @@
 {
     "python.linting.flake8Enabled": true,
-    // "python.linting.pylintPath": "pylint",
     "python.formatting.provider": "autopep8",
     "python.pythonPath": "${workspaceFolder}/.env/bin/python",
     "python.venvPath": "${workspaceFolder}/.env",
@@ -13,11 +12,28 @@
         "**/.*": true,
         "**/*.pyc": true
     },
+    "files.watcherExclude": {
+        "**/dist/**": true,
+        "**/node_modules/": true,
+        "**/tmp/": true,
+        "**/dist/": true,
+        "**/build/": true,
+        "**/__pycache__": true,
+        "**/.*": true,
+        "**/*.pyc": true
+    },
     "files.trimTrailingWhitespace": true,
     // "python.linting.enabled": false
     // The number of spaces a tab is equal to. This setting is overriden
     // based on the file contents when `editor.detectIndentation` is true.
-    "editor.tabSize": 2,
+    "editor.tabSize": 4,
+
+    // "[scss]": {
+    //     "editor.tabSize": 2
+    // },
+    // "[javascript]": {
+    //     "editor.tabSize": 4
+    // },
 
     // Insert spaces when pressing Tab. This setting is overriden
     // based on the file contents when `editor.detectIndentation` is true.
