@@ -17,6 +17,7 @@ Router.map(function() {
     this.route('tasks');
   });
   this.route('admin');
+  this.route('registercompany');
 });
 
 export default Router;
