@@ -91,3 +91,7 @@ ENV/
 
 # Watchman
 /watchman
+/healthcatebooking-fe/watchman
+
+#swp files
+*swp
