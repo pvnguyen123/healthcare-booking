@@ -59,13 +59,17 @@ def configure_app(app, testing=False):
         app.config['SQLALCHEMY_DATABASE_URI'] = f'mysql+pymysql://{db_user}@{db_host}/{db_name}'
 
     # Setup CORs
-    headers = ['accept', 'origin', 'Content-Type']
-    origins = ['http://localhost:4200/*', 'http://localhost:5000/*']
-    CORS(app,
-        origins=origins,
-        resources=['/api/*', '/auth/*'],
-        allow_headers=headers,
-        supports_credentials=True)
+    if testing:
+        CORS(app)
+
+    # headers = ['accept', 'origin', 'Content-Type']
+    # origins = ['http://localhost:4200/*', 'http://localhost:5000/*']
+    # CORS(
+    #     app,
+    #     origins=origins,
+    #     resources=['/api/*', '/auth/*'],
+    #     allow_headers=headers,
+    #     supports_credentials=True)
 
 
 def configure_extensions(app, cli):

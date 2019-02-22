@@ -2,7 +2,7 @@
 
 import logging
 from sqlalchemy.inspection import inspect
-from pin3.extensions import db
+from healthcarebooking.extensions import db
 
 LOGGER = logging.getLogger(__name__)
 

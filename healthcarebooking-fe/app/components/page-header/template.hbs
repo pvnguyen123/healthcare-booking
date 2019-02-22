@@ -1,17 +1,21 @@
 <nav class="comp-page-header__nav container">
-  {{#link-to "protected.bookings" class="comp-page-header__nav-items"}}Bookings{{/link-to}}
-  {{#link-to "protected.requests" class="comp-page-header__nav-items"}}Requests{{/link-to}}
-  {{#link-to "protected.history" class="comp-page-header__nav-items"}}History{{/link-to}}
-  {{#link-to "protected.providers" class="comp-page-header__nav-items"}}Providers{{/link-to}}
-  {{#link-to "protected.clients" class="comp-page-header__nav-items"}}Patients{{/link-to}}
-  {{#link-to "protected.tasks" class="comp-page-header__nav-items"}}Tasks{{/link-to}}
-  <div class="comp-page-header__nav-items comp-page-header__nav-items--expand"></div>
-  <a href="#" class="comp-page-header__nav-items">
-    Hi {{username}}
-    {{#attach-popover class="ember-attacher-popper" hideOn="click clickout" showOn="click" arrow=true}}
-      <ul class="comp-page-header__dropdown">
-        <a href="#" class="comp-page-header__nav-items comp-page-header__nav-items--dropdown" {{action "logout"}}>Logout</a>
-      </ul>
-    {{/attach-popover}}
-  </a>
+    {{#link-to "protected.bookings" class="comp-page-header__nav-items"}}Bookings{{/link-to}}
+    {{#link-to "protected.requests" class="comp-page-header__nav-items"}}Requests{{/link-to}}
+    {{#link-to "protected.history" class="comp-page-header__nav-items"}}History{{/link-to}}
+    {{#link-to "protected.providers" class="comp-page-header__nav-items"}}Providers{{/link-to}}
+    {{#link-to "protected.clients" class="comp-page-header__nav-items"}}Patients{{/link-to}}
+    {{#link-to "protected.tasks" class="comp-page-header__nav-items"}}Tasks{{/link-to}}
+    <div class="comp-page-header__nav-items comp-page-header__nav-items--expand"></div>
+    <a href="#" class="comp-page-header__nav-items">
+        {{#if username}}
+            Hi {{username}}
+            {{#attach-popover class="ember-attacher-popper" hideOn="click clickout" showOn="click" arrow=true}}
+            <ul class="dropdown">
+                <a href="#" class="dropdown__item" {{action "logout"}}>Logout</a>
+            </ul>
+            {{/attach-popover}}
+        {{else}}
+            {{#link-to "login" class="comp-page-header__nav-items"}}Login{{/link-to}}
+        {{/if}}
+    </a>
 </nav>

@@ -1,0 +1,11 @@
+.dropdown {
+    display: flex;
+    flex-direction: column;
+}
+.dropdown--right {
+    right: 0;
+}
+.dropdown a {
+    text-decoration: none;
+    color: black;
+}

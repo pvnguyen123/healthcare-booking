@@ -2,11 +2,12 @@ from flask import request
 from flask_restful import Resource
 from flask_jwt_extended import jwt_required
 
-from healthcarebooking.models import User
+from healthcarebooking.models import User, dbutils
 from healthcarebooking.extensions import ma, db
 from healthcarebooking.commons.pagination import paginate
 from healthcarebooking.commons.utils import dasherize
 from healthcarebooking.commons.decorators import with_transaction, marshal_with
+
 
 class UserSchema(ma.Schema):
     id = ma.fields.Int(dump_only=True)
@@ -25,28 +26,23 @@ class UserResource(Resource):
     """
     method_decorators = [jwt_required]
 
+    @marshal_with(UserSchema)
     def get(self, user_id):
-        schema = UserSchema()
-        user = User.query.get_or_404(user_id)
-        return {"user": schema.dump(user).data}
+        return User.query.get_or_404(user_id)
 
+    @marshal_with(UserSchema)
     def patch(self, user_id):
         schema = UserSchema(partial=True)
-        user = User.query.get_or_404(user_id)
-        user_input, errors = schema.load(request.json)
+        attributes, errors = schema.load(request.json)
         if errors:
             return errors, 422
 
-        attributes = user_input.get('attributes')
+        return dbutils.update(User, **attributes)
 
-        return {"msg": "user updated", "user": schema.dump(user).data}
-
+    @with_transaction
+    @marshal_with(UserSchema)
     def delete(self, user_id):
-        user = User.query.get_or_404(user_id)
-        db.session.delete(user)
-        db.session.commit()
-
-        return {"msg": "user deleted"}
+        return dbutils.update(User, active=False)
 
 
 class UserList(Resource):
@@ -54,21 +50,20 @@ class UserList(Resource):
     """
     # method_decorators = [jwt_required]
 
+    @marshal_with(UserSchema)
     def get(self):
         schema = UserSchema(many=True)
         query = User.query
         return paginate(query, schema)
 
+    @marshal_with(UserSchema)
     def post(self):
         schema = UserSchema()
-        user, errors = schema.load(request.json)
+        attributes, errors = schema.load(request.json)
         if errors:
             return errors, 422
 
-        attributes = user.get('attributes')
-
-        user_obj = User(**attributes)
-        db.session.add(user_obj)
+        user = User(**attributes)
+        db.session.add(user)
         db.session.commit()
-
-        return {"msg": "user created", "user": schema.dump(user).data}, 201
+        return user
