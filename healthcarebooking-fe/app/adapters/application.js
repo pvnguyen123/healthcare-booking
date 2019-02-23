@@ -12,14 +12,4 @@ export default DS.JSONAPIAdapter.extend(DataAdapterMixin, {
     } = this.get('session.data.authenticated');
     xhr.setRequestHeader('Authorization', `Bearer ${access_token}`);
   },
-
-  ajaxOptions: function () {
-    let hash = this._super.apply(this, arguments);
-    if (config.environment === 'development') {
-      hash.xhrFields = {
-        withCredentials: true
-      };
-    }
-    return hash;
-  },
 });
