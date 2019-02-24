@@ -1,6 +1,5 @@
 # General util methods
 import logging
-from flask import current_app
 from functools import wraps
 from healthcarebooking.extensions import db
 from healthcarebooking.commons.pagination import paginate
@@ -16,7 +15,6 @@ def with_transaction(fn):
             ret = fn(*args, **kw)
             db.session.commit()
             return ret
-
         except:
             db.session.rollback()
             raise
@@ -24,7 +22,7 @@ def with_transaction(fn):
     return decorate
 
 
-def marshal_with(schema_type: type, many: bool=False):
+def marshal_with(schema_type: type, many=False):
     """
     A decorator function for generating json data for
     @param schema_type: The marshmallow schema to use for serialization

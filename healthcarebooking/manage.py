@@ -19,21 +19,23 @@ def init():
     and create a new user named admin with password admin
     """
     from healthcarebooking.extensions import db
-    from healthcarebooking.models import User
     click.echo("create database")
     db.create_all()
+    db.session.commit()
     click.echo("done")
 
-    click.echo("create user")
-    user = User(
-        username='admin',
-        email='admin@mail.com',
-        password='admin',
-        active=True
-    )
-    db.session.add(user)
-    db.session.commit()
-    click.echo("created user admin")
+
+    # from healthcarebooking.models import User
+    # click.echo("create user")
+    # user = User(
+    #     username='admin',
+    #     email='admin@mail.com',
+    #     password='admin',
+    #     active=True
+    # )
+    # db.session.add(user)
+
+    # click.echo("created user admin")
 
 
 if __name__ == "__main__":
