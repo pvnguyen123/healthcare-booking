@@ -14,7 +14,7 @@ class Company(db.Model):
     active = db.Column(db.Boolean, default=True)
 
     addresses = relationship("Address", back_populates="company")
-    people = relationship("Profile", secondary="company_people", back_populates="profile")
+    people = relationship("Profile", secondary="company_people", back_populates="profile") #many to many. Company can have many people, people can be related to many companies (ie. providers).
     
 
     def __repr__(self):
