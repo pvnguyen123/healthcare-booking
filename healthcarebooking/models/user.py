@@ -1,14 +1,15 @@
 from healthcarebooking.extensions import db, pwd_context
+from sqlalchemy import Column, Integer, String, Boolean
 
 
 class User(db.Model):
     """Basic user model
     """
-    id = db.Column(db.Integer, primary_key=True)
-    username = db.Column(db.String(80), unique=True, nullable=False)
-    email = db.Column(db.String(80), unique=True, nullable=False)
-    password = db.Column(db.String(255), nullable=False)
-    active = db.Column(db.Boolean, default=True)
+    id = Column(Integer, primary_key=True)
+    username = Column(String(80), unique=True, nullable=False)
+    email = Column(String(80), unique=True, nullable=False)
+    password = Column(String(255), nullable=False)
+    active = Column(Boolean, default=True)
 
     def __init__(self, **kwargs):
         super(User, self).__init__(**kwargs)
