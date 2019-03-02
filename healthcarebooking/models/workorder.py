@@ -10,6 +10,7 @@ class Workorder(db.Model):
     provider = db.Column(db.Integer, db.ForeignKey('profile.id'))
     client = db.Column(db.Integer, db.ForeignKey('profile.id'))
     creation = db.Column(db.DateTime, nullable=False)
+    schedule_date = db.Column(db.DateTime, nullable=False)
     acceptance = db.Column(db.DateTime, nullable=True)
     closure = db.Column(db.DateTime, nullable=True)
     status = db.Column(db.String(80), unique=False, nullable=False)
