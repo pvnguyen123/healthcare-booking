@@ -53,10 +53,14 @@ def configure_app(app, testing=False):
     db_host = urlquote(app.config['DB_HOST'])
     db_name = urlquote(app.config['DB_NAME'])
 
-    if db_password:
-        app.config['SQLALCHEMY_DATABASE_URI'] = f'mysql+pymysql://{db_user}:{db_password}@{db_host}/{db_name}?ssl_ca=BaltimoreCyberTrustRoot.crt.pem'
+
+    if testing:
+        if db_password:
+            app.config['SQLALCHEMY_DATABASE_URI'] = f'mysql+pymysql://{db_user}:{db_password}@{db_host}/{db_name}'
+        else:
+            app.config['SQLALCHEMY_DATABASE_URI'] = f'mysql+pymysql://{db_user}@{db_host}/{db_name}'
     else:
-        app.config['SQLALCHEMY_DATABASE_URI'] = f'mysql+pymysql://{db_user}@{db_host}/{db_name}'
+         app.config['SQLALCHEMY_DATABASE_URI'] = f'mysql+pymysql://{db_user}:{db_password}@{db_host}/{db_name}?ssl_ca=BaltimoreCyberTrustRoot.crt.pem'
 
     # Setup CORs
     if testing:
