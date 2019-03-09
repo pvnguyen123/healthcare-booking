@@ -1,4 +1,5 @@
 from healthcarebooking.extensions import db
+from sqlalchemy import ForeignKey, Column, Integer, Boolean, String, DateTime
 from sqlalchemy.orm import relationship
 
 
@@ -6,17 +7,17 @@ class Company(db.Model):
     """Basic company model
     """
     __tablename__ = 'company'
-    id = db.Column(db.Integer, primary_key=True)
-    name = db.Column(db.String(80), unique=False, nullable=False, comment='Company name')
-    registerbyEmail =db.Column(db.String(80), unique=False, nullable=False, comment='Who registered the company')
-    registerDate = db.Column(db.DateTime, nullable=False)
-    confirmedDate = db.Column(db.DateTime, nullable=True)
-    phone = db.Column(db.String(80), unique=False, nullable=False)
-    active = db.Column(db.Boolean, default=True)
+    id = Column(Integer, primary_key=True)
+    name = Column(String(80), comment='Company Name', index=True)
+    email = Column(String(80), comment='Who registered the company', index=True)
+    phone = Column(String(80), comment='Company Phone Number', index=True)
+    active = Column(Boolean, default=True, comment='Company is active flag', index=True)
+    address_id = Column(Integer, ForeignKey('address.id'), comment='Company Address', index=True)
+    created = Column(DateTime, index=True)
+    last_updated = Column(DateTime, index=True)
 
-    # addresses = relationship("Address", back_populates="company")
+    address = relationship("Address")
+    profiles = relationship("Profile", secondary="association_company_profile")
 
-    tasks = relationship("Task")
-    profiles = relationship("CompanyPeople", back_populates="company")
     def __repr__(self):
-        return f'<Company {self.name} {self.phone}>'
+        return f'<Company {self.id} {self.name}>'

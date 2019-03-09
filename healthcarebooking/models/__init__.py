@@ -3,22 +3,22 @@ from .user import User
 from .address import Address
 from .profile import Profile
 from .company import Company
-from .companyPeople import CompanyPeople
 from .task import Task
-from .workorder import Workorder
-from .workorderTask import WorkorderTask
+from .work_order import WorkOrder
 from .blacklist import TokenBlacklist
 
+from .association_workorder_task import AssociationWorkOrderTask
+from .association_company_profile import AssociationCompanyProfile
 
 __all__ = [
+    'AssociationCompanyProfile',
+    'AssociationWorkOrderTask',
     'User',
     'Address',
     'Profile',
     'Company',
-    'CompanyPeople',
     'Task',
     'WorkOrder',
-    'WorkorderTask',
     'TokenBlacklist',
     'dbutils'
 ]

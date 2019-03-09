@@ -6,8 +6,8 @@ class User(db.Model):
     """Basic user model
     """
     id = Column(Integer, primary_key=True)
-    username = Column(String(80), unique=True, nullable=False)
-    email = Column(String(80), unique=True, nullable=False)
+    username = Column(String(80), unique=True, nullable=False, index=True)
+    email = Column(String(80), unique=True, nullable=False, index=True)
     password = Column(String(255), nullable=False)
     active = Column(Boolean, default=True)
 

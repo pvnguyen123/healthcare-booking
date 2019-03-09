@@ -62,18 +62,7 @@ def configure_app(app, testing=False):
     else:
          app.config['SQLALCHEMY_DATABASE_URI'] = f'mysql+pymysql://{db_user}:{db_password}@{db_host}/{db_name}?ssl_ca=BaltimoreCyberTrustRoot.crt.pem'
 
-    # Setup CORs
-    if testing:
-        CORS(app)
-
-    # headers = ['accept', 'origin', 'Content-Type']
-    # origins = ['http://localhost:4200/*', 'http://localhost:5000/*']
-    # CORS(
-    #     app,
-    #     origins=origins,
-    #     resources=['/api/*', '/auth/*'],
-    #     allow_headers=headers,
-    #     supports_credentials=True)
+    CORS(app)
 
 
 def configure_extensions(app, cli):

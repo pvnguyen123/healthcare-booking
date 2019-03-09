@@ -1,10 +1,9 @@
 from healthcarebooking.extensions import db
 from sqlalchemy import Column, DateTime, Integer, String, Boolean
-from sqlalchemy.orm import relationship
 
 
 class Profile(db.Model):
-    """Basic user model
+    """Basic user profile model definition
     """
     __tablename__ = 'profile'
     id = Column(Integer, primary_key=True)
@@ -15,9 +14,5 @@ class Profile(db.Model):
     updated = Column(DateTime, nullable=True, index=True)
     active = Column(Boolean, default=True, index=True)
 
-    addresses = relationship("Address", back_populates="profile")
-    companies = relationship("CompanyPeople", back_populates="profile")
-
-
     def __repr__(self):
-        return f'<Person {self.firstname} {self.lastname}>'
+        return f'<Profile {self.id}>'
