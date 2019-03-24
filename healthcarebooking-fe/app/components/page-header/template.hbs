@@ -1,4 +1,4 @@
-<nav class="comp-page-header__nav container">
+{{!-- <nav class="comp-page-header__nav container">
     {{#link-to "protected.bookings" class="comp-page-header__nav-items"}}Bookings{{/link-to}}
     {{#link-to "protected.requests" class="comp-page-header__nav-items"}}Requests{{/link-to}}
     {{#link-to "protected.history" class="comp-page-header__nav-items"}}History{{/link-to}}
@@ -18,4 +18,33 @@
             {{#link-to "login" class="comp-page-header__nav-items"}}Login{{/link-to}}
         {{/if}}
     </a>
+</nav> --}}
+
+<nav class="navbar navbar-expand-lg navbar-light">
+    <div class="container">
+        <a class="navbar-brand" href="#">CareFirst</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNavDropdown">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        {{#if username}}
+                            Hi {{username}}
+                        {{else}}
+                            Welcome
+                        {{/if}}
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                        {{#if username}}
+                                <a href="#" class="dropdown-item" {{action "logout"}}>Logout</a>
+                        {{else}}
+                            {{#link-to "login" class="dropdown-item"}}Login{{/link-to}}
+                        {{/if}}
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </div>
 </nav>

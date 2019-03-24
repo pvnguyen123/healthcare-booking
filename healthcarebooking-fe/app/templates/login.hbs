@@ -1,18 +1,23 @@
-<h3>Login</h3>
-<form class="form" role="form" autocomplete="off" id="formLogin" novalidate="" {{action "authenticate" on="submit" }}>
-  <div class="form-group">
-    <label for="identification">Username</label>
-    {{input id="identification" placeholder="Enter Login" value=identification required=true}}
-  </div>
-  <div class="form-group">
-    <label for="password">Password</label>
-    {{input id="password" placeholder="Enter Password" type="password" value=password required=true }}
-  </div>
-  <button type="submit" id="btnLogin">Login</button>
-</form>
-<section>
-Don't have an account? {{#link-to "register"}}Register{{/link-to}} as an individual provider here!
-</section>
-<section>
-Are you a health care provider company? {{#link-to "registercompany"}}Register{{/link-to}} your company here!
+<section class="page">
+    <div class="page__header">Login</div>
+    <form {{action "authenticate" on="submit" }}>
+        <div class="form-group">
+            <label for="identification">Username</label>
+            {{input id="identification" placeholder="Enter Login" value=identification required=true}}
+        </div>
+        <div class="form-group">
+            <label for="password">Password</label>
+            {{input id="password" placeholder="Enter Password" type="password" value=password required=true }}
+        </div>
+        <button type="submit" id="btnLogin">Login</button>
+    </form>
+    <div>
+        <p>
+            Don't have an account? {{#link-to "register"}}Register{{/link-to}} as an individual provider here!
+        </p>
+        <p>
+            Are you a health care provider company? {{#link-to "registercompany"}}Register{{/link-to}} your company here!
+        </p>
+
+    </div>
 </section>

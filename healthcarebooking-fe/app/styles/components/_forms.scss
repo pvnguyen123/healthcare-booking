@@ -1,0 +1,21 @@
+.form-group--row {
+    display: grid;
+    grid-template-columns: 15rem auto;
+    padding: .5rem 0;
+}
+
+button[type=submit] {
+    @extend .btn;
+    @extend .btn-primary;
+    margin-left: auto;
+    min-width: 6rem;
+}
+
+input[type=text], input[type=password], input[type=email]  {
+    @extend .form-control;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+}

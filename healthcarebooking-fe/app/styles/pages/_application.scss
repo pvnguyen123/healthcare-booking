@@ -2,6 +2,7 @@
     display: grid;
     min-height: 100vh;
     grid-template-rows: auto 1fr auto;
+    background-color: #F7F7FF;
     grid-template-areas:
         "header"
         "main"
@@ -9,6 +10,7 @@
 
     .application-layout__header {
         grid-area: header;
+        background-color: white;
     }
 
     .application-layout__main {

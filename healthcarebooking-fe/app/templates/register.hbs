@@ -1,20 +1,22 @@
-<h3>Register</h3>
-<form class="form" {{action "submit" model on="submit" }}>
-    <div class="row">
-        <label for="username">Username</label>
-        {{input id="username" placeholder="Username" value=model.username required=true}}
-    </div>
-    <div class="row">
-        <label for="Email">Email</label>
-        {{input id="Email" placeholder="Email" value=model.email required=true}}
-    </div>
-    <div class="row">
-        <label for="password">Password</label>
-        {{input id="password" placeholder="Enter Password" type="password" value=model.password required=true }}
-    </div>
-    <div class="row">
-        <label for="reenter">Re-enter Password</label>
-        {{input id="reenter" placeholder="Enter Password" type="password" value=model.passwordConfirm required=true }}
-    </div>
-    <button type="submit" id="btnLogin">Submit</button>
-</form>
+<section class="page">
+    <div class="page__header">Register</div>
+    <form {{action "submit" model on="submit" }}>
+        <div class="orm-group form-group--row">
+            <label for="username">Username</label>
+            {{input id="username" placeholder="Username" value=model.username required=true}}
+        </div>
+        <div class="form-group--row">
+            <label for="Email">Email</label>
+            {{input id="Email" placeholder="Email" value=model.email required=true}}
+        </div>
+        <div class="form-group--row">
+            <label for="password">Password</label>
+            {{input id="password" placeholder="Enter Password" type="password" value=model.password required=true }}
+        </div>
+        <div class="form-group--row">
+            <label for="reenter">Re-enter Password</label>
+            {{input id="reenter" placeholder="Enter Password" type="password" value=model.passwordConfirm required=true }}
+        </div>
+        <button type="submit">Submit</button>
+    </form>
+</section>
