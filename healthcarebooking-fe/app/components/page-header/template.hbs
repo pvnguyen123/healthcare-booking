@@ -38,8 +38,8 @@
                     </a>
                     <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
                         {{#if authenticated}}
-                            <a href="#" class="dropdown-item">Workspace 1 {{fe-icon 'check'}}</a>
-                            <a href="#" class="dropdown-item">Workspace 2</a>
+                            {{#link-to 'protected.profiles' class="dropdown-item" }}Workspace 1 {{/link-to}}
+                            {{#link-to 'protected.profiles' (query-params space="workspace2") class="dropdown-item" }}Workspace 2{{/link-to}}
                             <div class="dropdown-divider"></div>
                             <a href="#" class="dropdown-item" {{action "logout"}}>Logout</a>
 
