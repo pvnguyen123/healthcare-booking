@@ -23,8 +23,5 @@ module.exports = function(defaults) {
   // please specify an object with the list of modules as keys
   // along with the exports of each module as its value.
 
-//   app.import('vendor/Skeleton-2.0.4/css/normalize.css');
-//   app.import('vendor/Skeleton-2.0.4/css/skeleton.css');
-
   return app.toTree();
 };
