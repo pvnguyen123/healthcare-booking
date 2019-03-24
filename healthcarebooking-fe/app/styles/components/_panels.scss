@@ -1,17 +1,30 @@
 .panel {
     background-color: white;
     padding: 1rem;
+    margin-bottom: 1rem;
 }
 
-.panel--medium {
+.panel--large {
     max-width: 40rem;
 }
 
-.panel__header {
-
+.panel--medium {
+    max-width: 30rem;
 }
 
-.panel--placeholder {
+.panel--small {
+    max-width: 20rem;
+}
+
+.panel__body--fixed {
+    overflow: scroll;
     height: 20rem;
-    margin: 5px;
+}
+
+.panel__header {
+    display: flex;
+    padding-bottom: 1rem;
+    text-transform: capitalize;
+    font-weight: 600;
+
 }

@@ -7,6 +7,7 @@ export default Component.extend({
     session: service(),
     username: alias('session.data.authenticated.username'),
     authenticated: alias('session.session.isAuthenticated'),
+
     actions: {
         logout() {
             this.get('session').invalidate();

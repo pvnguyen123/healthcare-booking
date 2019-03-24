@@ -1,7 +1,9 @@
 .page{
     margin-top: 1rem;
+    margin-bottom: 1rem;
 }
 .page__header {
+    display: flex;
     font-size: 20pt;
     font-weight: 600;
     padding-bottom: 1rem;

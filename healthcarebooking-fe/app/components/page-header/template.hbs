@@ -30,15 +30,19 @@
             <ul class="navbar-nav ml-auto">
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        {{#if username}}
+                        {{#if authenticated}}
                             Hi {{username}}
                         {{else}}
                             Welcome
                         {{/if}}
                     </a>
                     <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                        {{#if username}}
-                                <a href="#" class="dropdown-item" {{action "logout"}}>Logout</a>
+                        {{#if authenticated}}
+                            <a href="#" class="dropdown-item">Workspace 1 {{fe-icon 'check'}}</a>
+                            <a href="#" class="dropdown-item">Workspace 2</a>
+                            <div class="dropdown-divider"></div>
+                            <a href="#" class="dropdown-item" {{action "logout"}}>Logout</a>
+
                         {{else}}
                             {{#link-to "login" class="dropdown-item"}}Login{{/link-to}}
                         {{/if}}
