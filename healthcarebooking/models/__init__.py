@@ -5,6 +5,7 @@ from .profile import Profile
 from .company import Company
 from .task import Task
 from .work_order import WorkOrder
+from .region import Region
 from .blacklist import TokenBlacklist
 
 from .association_workorder_task import AssociationWorkOrderTask
@@ -20,5 +21,6 @@ __all__ = [
     'Task',
     'WorkOrder',
     'TokenBlacklist',
-    'dbutils'
+    'dbutils',
+    'Region'
 ]
