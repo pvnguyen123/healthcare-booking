@@ -50,11 +50,11 @@ class UserList(Resource):
     """
     # method_decorators = [jwt_required]
 
-    @marshal_with(UserSchema)
+    @marshal_with(UserSchema, many=True)
     def get(self):
-        schema = UserSchema(many=True)
         query = User.query
-        return paginate(query, schema)
+
+        return query
 
     @marshal_with(UserSchema)
     def post(self):
