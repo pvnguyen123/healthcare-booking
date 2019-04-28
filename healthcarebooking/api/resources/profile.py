@@ -1,8 +1,10 @@
 from flask import request
 from flask_restful import Resource
 from flask_jwt_extended import jwt_required
+from webargs import fields
+from webargs.flaskparser import use_args
 
-from healthcarebooking.models import Profile, dbutils
+from healthcarebooking.models import Profile, AssociationCompanyProfile, dbutils
 from healthcarebooking.extensions import ma
 from healthcarebooking.commons.utils import dasherize
 from healthcarebooking.commons.decorators import with_transaction, marshal_with
@@ -55,10 +57,26 @@ class ProfileList(Resource):
     """Creation and get_all
     """
     # method_decorators = [jwt_required]
+    args = {
+        "company_id": fields.Int(),
+        "type": fields.Str()
+    }
 
     @marshal_with(ProfileSchema, many=True)
-    def get(self):
+    @use_args(args)
+    def get(self, args):
+        company_id = args.get('company_id')
+        profile_type = args.get('type')
+
         query = Profile.query
+
+        if company_id:
+            query = query.join(AssociationCompanyProfile, Profile.id == AssociationCompanyProfile.profile_id)\
+                         .filter(AssociationCompanyProfile.company_id == company_id)
+
+            if profile_type:
+                query.filter(AssociationCompanyProfile.association_type == profile_type)
+
         return query
 
     @marshal_with(ProfileSchema)

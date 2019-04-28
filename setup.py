@@ -17,7 +17,8 @@ setup(
         'pymysql',
         'marshmallow-sqlalchemy',
         'python-dotenv',
-        'passlib'
+        'passlib',
+        'webargs'
     ],
     entry_points={
         'console_scripts': [

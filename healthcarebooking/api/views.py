@@ -6,7 +6,9 @@ from healthcarebooking.api.resources import (
     AddressResource,
     AddressList,
     ProfileResource,
-    ProfileList)
+    ProfileList,
+    CompanyResource,
+    CompanyList)
 
 
 blueprint = Blueprint('api', __name__, url_prefix='/api/v1')
@@ -19,3 +21,5 @@ api.add_resource(AddressResource, '/addresses/<int:_id>')
 api.add_resource(AddressList, '/addresses')
 api.add_resource(ProfileResource, '/profiles/<int:_id>')
 api.add_resource(ProfileList, '/profiles')
+api.add_resource(CompanyResource, '/companies/<int:_id>')
+api.add_resource(CompanyList, '/companies')

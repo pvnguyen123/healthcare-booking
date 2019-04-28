@@ -15,7 +15,7 @@ Router.map(function() {
     this.route('providers');
     this.route('clients');
     this.route('tasks');
-    this.route('profiles');
+    this.route('profiles', { path: 'profiles/:id' });
   });
   this.route('admin');
 

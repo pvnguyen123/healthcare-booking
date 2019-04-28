@@ -4,8 +4,9 @@ export default Component.extend({
     store: inject(),
     didInsertElement() {
         console.log('didInsertElement')
-        this.store.query('user', {}).then(records => {
-            this.set('patients', records);
-        })
+        console.log(this.get('patients.firstObject'))
     },
+}).reopenClass({
+    positionalParams: ['clients']
 });
+

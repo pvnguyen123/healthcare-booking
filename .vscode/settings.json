@@ -1,8 +1,8 @@
 {
-    "python.linting.flake8Enabled": true,
-    "python.formatting.provider": "autopep8",
-    "python.pythonPath": "${workspaceFolder}/.env/bin/python",
-    "python.venvPath": "${workspaceFolder}/.env",
+    // "python.linting.flake8Enabled": true,
+    // "python.formatting.provider": "autopep8",
+    // "python.pythonPath": "${workspaceFolder}/.env/bin/python",
+    // "python.venvPath": "${workspaceFolder}/.env",
     "files.exclude": {
         "**/node_modules/": true,
         "**/tmp/": true,

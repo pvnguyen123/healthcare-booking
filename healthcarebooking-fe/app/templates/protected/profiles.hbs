@@ -3,7 +3,7 @@
         <div class="col-md-12">
             <div class="panel">
                 <div class="page__header">
-                    Workspace 1
+                    {{model.name}}
                     <div class="dropdown" class="ml-auto">
                         <span id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                             {{fe-icon 'more-horizontal' }}
@@ -74,7 +74,7 @@
             <div class="panel">
                 <div class="panel__header">Patients</div>
                 <div class="panel__body panel__body--fixed">
-                    {{patient-list}}
+                    {{patient-list model.clients}}
                 </div>
 
             </div>

@@ -1,6 +1,7 @@
 from .user import UserResource, UserList
 from .address import AddressResource, AddressList
 from .profile import ProfileResource, ProfileList
+from .company import CompanyResource, CompanyList
 
 __all__ = [
     'UserResource',
@@ -8,5 +9,7 @@ __all__ = [
     'AddressResource',
     'AddressList',
     'ProfileResource',
-    'ProfileList'
+    'ProfileList',
+    'CompanyResource',
+    'CompanyList'
 ]
